@@ -78,84 +78,77 @@
       </div>
    </section>
 
+   
+<!-- Script -->
    <script>
       //remove item
       const firstItem = document.getElementById("firstRemoveItem");
-      firstItem.addEventListener("click", function(){
-         document.getElementById("firstCardItem").style.display = "none";
+         firstItem.addEventListener("click", function(){
+            document.getElementById("firstCardItem").style.display = "none";
       })
       const secondItem = document.getElementById("secondRemoveItem");
-      secondItem.addEventListener("click", function(){
-         document.getElementById("secondCardItem").style.display = "none";
+         secondItem.addEventListener("click", function(){
+            document.getElementById("secondCardItem").style.display = "none";
       })
 
       //add first items number
       const addFirstItem = document.getElementById("addFirstItem");
-      addFirstItem.addEventListener("click", function(){
-         const firstItemValue = document.getElementById("firstItemNumber").value;
-         const firstItemNumber = parseFloat(firstItemValue);
-         const firstItemText = document.getElementById("firstItemNumber").value = firstItemNumber + 1;
-         const firstItemPrice = document.getElementById("firstItemPrice").innerText;
-         const firstItemPriceNumber = parseFloat(firstItemPrice);
-         const firstItemUpdatePrice = document.getElementById("firstItemPrice").innerText = firstItemPriceNumber + 1219;
+         addFirstItem.addEventListener("click", function(){
+            addItemNumber("firstItemNumber", "firstItemPrice", 1219);
+      })
 
-         const subTotal = document.getElementById("subTotal").innerText;
-         const subTotalNumber = parseFloat(subTotal);
-         const SubtotalUpdate = document.getElementById("subTotal").innerText = subTotalNumber + 1219;
-         const totalUpdate = document.getElementById("total").innerText = subTotalNumber + 1219;
+      //add second items number
+      const addSecondItem = document.getElementById("addSecondItem");
+         addSecondItem.addEventListener("click", function(){
+            addItemNumber("secondItemNumber", "secondItemPrice", 59);
       })
       //minus first item number
       const minusFirstItem = document.getElementById("minusFirstItem");
-      minusFirstItem.addEventListener("click", function(){
-         const firstItemValue = document.getElementById("firstItemNumber").value;
-         const firstItemNumber = parseFloat(firstItemValue);
-         const firstItemText = document.getElementById("firstItemNumber").value = firstItemNumber - 1;
-         const firstItemPrice = document.getElementById("firstItemPrice").innerText;
-         const firstItemPriceNumber = parseFloat(firstItemPrice);
-         const firstItemUpdatePrice = document.getElementById("firstItemPrice").innerText = firstItemPriceNumber - 1219;
-
-         const subTotal = document.getElementById("subTotal").innerText;
-         const subTotalNumber = parseFloat(subTotal);
-         const SubtotalUpdate = document.getElementById("subTotal").innerText = subTotalNumber - 1219;
-         const totalUpdate = document.getElementById("total").innerText = subTotalNumber - 1219;
+         minusFirstItem.addEventListener("click", function(){
+            minusItemNumber("firstItemNumber", "firstItemPrice", 1219);
       })
-      //add second items number
-      const addSecondItem = document.getElementById("addSecondItem");
-      addSecondItem.addEventListener("click", function(){
-         const secondItemValue = document.getElementById("secondItemNumber").value;
-         const secondItemNumber = parseFloat(secondItemValue);
-         const secondItemText = document.getElementById("secondItemNumber").value = secondItemNumber + 1;
-         const secondItemPrice = document.getElementById("secondItemPrice").innerText;
-         const secondItemPriceNumber = parseFloat(secondItemPrice);
-         const secondItemUpdatePrice = document.getElementById("secondItemPrice").innerText = secondItemPriceNumber + 59;
-
-         const subTotal = document.getElementById("subTotal").innerText;
-         const subTotalNumber = parseFloat(subTotal);
-         const SubtotalUpdate = document.getElementById("subTotal").innerText = subTotalNumber + 59;
-         const totalUpdate = document.getElementById("total").innerText = subTotalNumber + 59;
-      })
-      //minus first item number
+      
+      //minus second item number
       const minusSecondItem = document.getElementById("minusSecondItem");
-      minusSecondItem.addEventListener("click", function(){
-         const secondItemValue = document.getElementById("secondItemNumber").value;
-         const secondItemNumber = parseFloat(secondItemValue);
-         const secondItemText = document.getElementById("secondItemNumber").value = secondItemNumber - 1;
-         const secondItemPrice = document.getElementById("secondItemPrice").innerText;
-         const secondItemPriceNumber = parseFloat(secondItemPrice);
-         const secondItemUpdatePrice = document.getElementById("secondItemPrice").innerText = secondItemPriceNumber - 59;
-
-         const subTotal = document.getElementById("subTotal").innerText;
-         const subTotalNumber = parseFloat(subTotal);
-         const SubtotalUpdate = document.getElementById("subTotal").innerText = subTotalNumber - 59;
-         const totalUpdate = document.getElementById("total").innerText = subTotalNumber - 59;
+         minusSecondItem.addEventListener("click", function(){
+            minusItemNumber("secondItemNumber", "secondItemPrice", 59);
       })
 
       //checkout
       const checkout = document.getElementById("checkout");
-      checkout.addEventListener("click", function(){
-         alert("Are you sure want to \"Check Out\"");
+         checkout.addEventListener("click", function(){
+            alert("Are you sure want to \"Check Out\"");
       })
 
+      //Function for add Item Number
+      function addItemNumber(itemNumberId, itemPriceId, price){
+         const itemValue = document.getElementById(itemNumberId).value;
+         const itemNumber = parseFloat(itemValue);
+         const itemText = document.getElementById(itemNumberId).value = itemNumber + 1;
+         const itemPrice = document.getElementById(itemPriceId).innerText;
+         const itemPriceNumber = parseFloat(itemPrice);
+         const itemUpdatePrice = document.getElementById(itemPriceId).innerText = itemPriceNumber + price;
+
+         const subTotal = document.getElementById("subTotal").innerText;
+         const subTotalNumber = parseFloat(subTotal);
+         const SubtotalUpdate = document.getElementById("subTotal").innerText = subTotalNumber + price;
+         const totalUpdate = document.getElementById("total").innerText = subTotalNumber + price;
+      }
+
+      //Function for minus Item Number
+      function minusItemNumber(itemNumberId, itemPriceId, price){
+         const itemValue = document.getElementById(itemNumberId).value;
+         const itemNumber = parseFloat(itemValue);
+         const itemText = document.getElementById(itemNumberId).value = itemNumber - 1;
+         const itemPrice = document.getElementById(itemPriceId).innerText;
+         const itemPriceNumber = parseFloat(itemPrice);
+         const itemUpdatePrice = document.getElementById(itemPriceId).innerText = itemPriceNumber - price;
+
+         const subTotal = document.getElementById("subTotal").innerText;
+         const subTotalNumber = parseFloat(subTotal);
+         const SubtotalUpdate = document.getElementById("subTotal").innerText = subTotalNumber - price;
+         const totalUpdate = document.getElementById("total").innerText = subTotalNumber - price;
+      }
    </script>
 </body>
 
